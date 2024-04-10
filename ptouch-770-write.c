@@ -652,13 +652,6 @@ int main(int argc, char **argv)
 
   /* No chain printing (cut after the label) */
   memcpy(cmd_buffer + 21, "\x1b\x69\x4b\x08", 4); 
-#if 0
-  /* Margins 2mm */
-  memcpy(cmd_buffer + 25, "\x1b\x69\x64\x0e\x00", 5); 
-#else
-  /* Margins 32 pixels */
-  memcpy(cmd_buffer + 25, "\x1b\x69\x64\x20\x00", 5); 
-#endif
   /* Compression on */
   memcpy(cmd_buffer + 30, "\x4d\x02", 2);
   if(write_persist(h, cmd_buffer, 32) != 32)
